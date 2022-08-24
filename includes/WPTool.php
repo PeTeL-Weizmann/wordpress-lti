@@ -171,6 +171,11 @@ class LTI_Tool_WPTool extends Tool
                 $path = $key . $resource_id;
             }
 
+            //set site path (devlion 24-08/2022) Redmine 6523
+            if (!empty($this->dataConnector->site)) {
+                $path = $this->dataConnector->site;
+            }
+
             // Replace any non-allowed characters in WordPress with -
             $path = preg_replace('/[^_0-9a-zA-Z-]+/', '-', $path);
 
